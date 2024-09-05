@@ -1,0 +1,17 @@
+{
+    "header": {
+        "targetServiceName": "network/com.tmax.tmaxcloud.network.master.subnet.overlay.CreateSubnetService",
+        "requestId": 1,
+        "messageType": "REQUEST",
+        "contentType": "TEXT"
+    },
+    "body": {
+        "project_id": 4,
+        "tenant_id": 2,
+        "network_id": 41,
+        "name": "1",
+        "description": "test_subnet",
+        "cidr": "10.0.1.0/24",
+        "dns_server": "8.8.8.8"
+    }
+}

@@ -1,0 +1,12 @@
+{
+    "header": {
+        "targetServiceName": "network/com.tmax.tmaxcloud.network.master.nacl.CreateNaclService",
+        "messageType": "REQUEST"
+    },
+    "body": {
+        "project_id": 4,
+        "tenant_id": 2,
+        "name": "test_nacl",
+        "network_id": 41
+    }
+}

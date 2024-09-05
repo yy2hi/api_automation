@@ -1,0 +1,25 @@
+{
+    "header": {
+        "targetServiceName": "network/com.tmax.tmaxcloud.network.master.loadbalancer.overlay.CreateLbService",
+        "messageType": "REQUEST"
+    },
+    "body": {
+        "tenant_id": 2,
+        "project_id": 4,
+        "network_id": 41,
+        "name": "lb name",
+        "description": "lb description",
+        "lb_type": "external",
+        "lb_ip": null,
+        "subnet_id": 38,
+        "listeners": [
+            {
+                "port": 80,
+                "protocol": "tcp",
+                "algorithm": "weight",
+                "description": "description111",
+                "target_group_id": 13
+            }
+        ]
+    }
+}

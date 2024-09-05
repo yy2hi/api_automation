@@ -1,0 +1,17 @@
+{
+    "header": {
+        "targetServiceName": "network/com.tmax.tmaxcloud.network.master.networkinterface.CreateHostInterfaceUsage",
+        "requestId": 1,
+        "messageType": "REQUEST",
+        "contentType": "TEXT"
+    },
+    "body": {
+        "osId": 6,
+        "interfaceName": "enp2s0",
+        "ifUsage": [
+            "control",
+            "ceph_front",
+            "internal"
+        ]
+    }
+}

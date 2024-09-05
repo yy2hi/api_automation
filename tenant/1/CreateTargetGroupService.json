@@ -1,0 +1,35 @@
+{
+    "header": {
+        "targetServiceName": "network/com.tmax.tmaxcloud.network.master.targetgroup.CreateTargetGroupService",
+        "messageType": "REQUEST"
+    },
+    "body": {
+        "tenant_id": 2,
+        "project_id": 4,
+        "network_id": 41,
+        "name": "target group name",
+        "description": "desc",
+        "protocol": "tcp",
+        "port": "80",
+        "editable": 1,
+        "type": "ip",
+        "health_protocol": "tcp",
+        "health_port": "80",
+        "health_threshold": 3,
+        "health_interval": 120,
+        "create_members": [
+            {
+                "guest_interface_id": null,
+                "target_ip": "10.0.0.10",
+                "target_port": "80",
+                "rule_option": null
+            },
+            {
+                "guest_interface_id": null,
+                "target_ip": "10.0.0.11",
+                "target_port": "81",
+                "rule_option": "11"
+            }
+        ]
+    }
+}

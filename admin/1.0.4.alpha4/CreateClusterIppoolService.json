@@ -1,0 +1,17 @@
+{
+    "header": {
+        "targetServiceName": "network/com.tmax.tmaxcloud.network.master.subnet.underlay.CreateClusterIppoolService",
+        "messageType": "REQUEST",
+        "contentType": "TEXT"
+    },
+    "body": {
+        "name": "test_ippool",
+        "start_ip": "10.3.0.3",
+        "end_ip": "10.3.0.50",
+        "dns_server": "8.8.8.8",
+        "description": "Public Ippool",
+        "type": "PUBLIC",
+        "cidr": "10.3.0.0/24",
+        "gateway_ip": "10.3.0.1"
+    }
+}

@@ -1,0 +1,14 @@
+{
+    "header": {
+        "messageType": "REQUEST",
+        "targetServiceName": "inframaster-compute/com.tmax.tmaxcloud.inframaster.compute.master.service.project.CreateProjectWithQuotaService"
+    },
+    "body": {
+        "name": "1",
+        "tenant_id": "2",
+        "description": "JSON",
+        "vcpu_limit": 100,
+        "vmem_limit": 20480,
+        "disk_limit": 90737418240
+    }
+}

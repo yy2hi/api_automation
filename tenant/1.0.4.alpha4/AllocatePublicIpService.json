@@ -1,0 +1,11 @@
+{
+    "header": {
+        "targetServiceName": "network/com.tmax.tmaxcloud.network.master.subnet.publicip.AllocatePublicIpService",
+        "messageType": "REQUEST",
+        "contentType": "TEXT"
+    },
+    "body": {
+        "project_id": 46,
+        "type": "FREE"
+    }
+}

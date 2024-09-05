@@ -1,0 +1,25 @@
+{
+    "header": {
+        "targetServiceName": "inframaster-compute/com.tmax.tmaxcloud.inframaster.compute.master.service.compute.vm.CreateGuestMachineService",
+        "messageType": "REQUEST"
+    },
+    "body": {
+        "name": "yjsautovm",
+        "tenant_id": 1,
+        "project_id": 46,
+        "network_id": 48,
+        "vnic_info": [
+            {
+                "subnet_id": 42,
+                "security_group_ids": [
+                    26
+                ]
+            }
+        ],
+        "mem_total": "1024",
+        "vcpu_count": "1",
+        "disks": [],
+        "image_id": "22",
+        "blk_dev_domain_id": 1
+    }
+}
