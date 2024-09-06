@@ -1,4 +1,0 @@
-service name:  CreateProjectWithQuotaService
-status value:  -1
-result: fail
---------------------------------------------------------------------------------
