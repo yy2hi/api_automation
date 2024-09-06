@@ -2,7 +2,7 @@ import os
 import json
 import db_sql_tenant
 import sapgo_result
-import pyodbc
+#import pyodbc
 
 def create_json_file(file_name, data, total_num_files):
     # 해당 디렉토리에 json 저장

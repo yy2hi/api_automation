@@ -4,8 +4,8 @@ import db_sql_admin
 import sapgo_result
 
 def create_json_file(file_name, data, total_num_files):
-    # 해당 디렉토리를 만들어서 여기다 저장할 거임
-    base_direc = f'/home/sapgo/network/automation/Create/admin/{version}/'
+    # 해당 디렉토리에 json 저장
+    base_direc = f'/home/sapgo/bvt/admin/{version}/'
 
     # 디렉토리가 없으면 생성
     if not os.path.exists(base_direc):
@@ -25,7 +25,7 @@ def create_json_file(file_name, data, total_num_files):
 
 # Python 딕셔너리를 이용하여 json 파일 생성
 def admin():
-    base_direc = f'/home/sapgo/network/automation/Create/admin/{version}/'
+    base_direc = f'/home/sapgo/bvt/admin/{version}/'
     if not os.path.exists(base_direc):
         os.makedirs(base_direc, exist_ok=True)
 
@@ -106,7 +106,7 @@ def admin():
     # success_num_files, fail_num_files = sapgo_result.admin_sapgo_result(base_direc,file_path, success_num_files, fail_num_files)
     # db_sql_admin.result_sql_admin()
 
-    # 용도 지정 (bvt)
+    # compute17 용도 지정 (bvt)
     CreateHostInterfaceUsage  = {
         "header": {
             "targetServiceName": "network/com.tmax.tmaxcloud.network.master.networkinterface.CreateHostInterfaceUsage",
@@ -124,7 +124,7 @@ def admin():
     success_num_files, fail_num_files = sapgo_result.admin_sapgo_result(base_direc,file_path, success_num_files, fail_num_files)
     db_sql_admin.result_sql_admin()
 
-    # 네트워크 노드 등록 (bvt)
+    # master9 네트워크 노드 등록 (bvt)
     SettingNetworkHostService  = {
         "header": {
             "targetServiceName": "network/com.tmax.tmaxcloud.network.master.etc.SettingNetworkHostService",
@@ -153,14 +153,14 @@ def admin():
             "contentType": "TEXT"
         },
         "body": {
-            "name" : "test_ippool",
-            "start_ip" : "10.3.0.3",
-            "end_ip" : "10.3.0.50",
+            "name" : "auto_ipPool",
+            "start_ip" : "172.31.5.100",
+            "end_ip" : "172.31.5.200",
             "dns_server" : "8.8.8.8",
             "description" : "Public Ippool",
             "type" : "PUBLIC",
-            "cidr" : "10.3.0.0/24",
-            "gateway_ip" : "10.3.0.1"
+            "cidr" : "172.31.0.0/16",
+            "gateway_ip" : "172.31.0.2"
         }
     }
     file_path, total_num_files, base_direc= create_json_file("CreateClusterIppoolService.json", CreateClusterIppoolService, total_num_files)
