@@ -28,7 +28,7 @@ def result_sql_admin():
                 global result_ADMIN_ID
                 result_ADMIN_ID = int(result_sql_ADMIN_ID[0][0])
 
-                # host os group id
+                # host os group id (test)
                 sql_OS_GROUP_ID = "SELECT OS_GROUP_ID FROM HOST_OS_GROUP WHERE OS_GROUP_NAME='test';"
                 result_sql_OS_GROUP_ID = curs.execute(sql_OS_GROUP_ID).fetchall()
                 global result_OS_GROUP_ID
