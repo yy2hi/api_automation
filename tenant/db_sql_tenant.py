@@ -29,8 +29,8 @@ def result_tenant_sql():
                 result_USER_ID = int(result_sql_USER_ID[0][0])
                 
                 # STORAGE IMAGE_ID (어드민 이미지 ID)
-                sql_IMAGE_ID = "SELECT PROJECT_ID FROM PROJECT WHERE NAME='projectJSON';"
-                result_sql_IMAGE_ID = curs.execute(sql_PROJECT_ID).fetchall()
+                sql_IMAGE_ID = "SELECT ID FROM STORAGE_PUBLIC_IMAGE;"
+                result_sql_IMAGE_ID = curs.execute(sql_IMAGE_ID).fetchall()
                 global result_IMAGE_ID
                 result_IMAGE_ID = int(result_sql_IMAGE_ID[0][0])
                 # print("result_IMAGE_ID",result_IMAGE_ID)
@@ -60,6 +60,12 @@ def result_tenant_sql():
                 global result_TENANT_ID
                 result_TENANT_ID = int(result_sql_TENANT_ID[0][0])
                 # print("result_TENANT_ID", result_TENANT_ID)
+
+                # GUEST_MACHINE_ID 추출
+                sql_GUEST_MACHINE_ID = "SELECT GUEST_MACHINE_ID FROM GUEST_MACHINE WHERE NAME = 'yjsautovm'"
+                result_sql_GUEST_MACHINE_ID = curs.execute(sql_GUEST_MACHINE_ID).fetchall()
+                global result_GUEST_MACHINE_ID
+                result_GUEST_MACHINE_ID = int(result_sql_GUEST_MACHINE_ID[0][0])
 
                 # 연결 닫기
                 conn.close()

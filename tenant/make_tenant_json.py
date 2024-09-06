@@ -61,7 +61,7 @@ def tenant(project_name, network_name, subnet_name):
     success_num_files, fail_num_files = sapgo_result.tenant_sapgo_result(base_direc,file_path, success_num_files, fail_num_files)
     db_sql_tenant.result_tenant_sql()
 
-    # 상위 PROJECT_ID 추출
+    # PROJECT_ID 추출
     conn, curs = db_sql_tenant.conn_db()
     sql_PROJECT_ID = f"SELECT PROJECT_ID FROM PROJECT WHERE NAME='{project_name}'"
     result_sql_PROJECT_ID = curs.execute(sql_PROJECT_ID).fetchall()
@@ -93,7 +93,6 @@ def tenant(project_name, network_name, subnet_name):
     sql_NETWORK_ID = f"SELECT NETWORK_ID FROM NETWORK WHERE NAME='{network_name}'"
     result_sql_NETWORK_ID = curs.execute(sql_NETWORK_ID).fetchall()
     NETWORK_ID = int(result_sql_NETWORK_ID[0][0])
-
     conn.close()
 
     CreateSubnetService = {
@@ -203,7 +202,7 @@ def tenant(project_name, network_name, subnet_name):
     db_sql_tenant.result_tenant_sql()
 
     # SECURITY_GROUP_ID 추출
-    db_sql_tenant.conn_db
+    conn, curs = db_sql_tenant.conn_db()
     sql_SECURITY_GROUP_ID = f"SELECT SECURITY_GROUP_ID FROM SECURITY_GROUP WHERE NETWORK_ID={NETWORK_ID}"
     result_sql_SECURITY_GROUP_ID = curs.execute(sql_SECURITY_GROUP_ID).fetchall()
     SECURITY_GROUP_ID = int(result_sql_SECURITY_GROUP_ID[0][0])
@@ -408,19 +407,19 @@ def tenant(project_name, network_name, subnet_name):
     # 빈블록 생성 (bvt)
     BlkDevCreateEmpty = {
         "header": {
-        "targetServiceName": "storage/com.tmax.tmaxcloud.storage.master.BlkDevCreateEmpty",
-        "requestId": 1,
-        "messageType": "REQUEST",
-        "contentType": "TEXT"
+            "targetServiceName": "storage/com.tmax.tmaxcloud.storage.master.BlkDevCreateEmpty",
+            "requestId": 1,
+            "messageType": "REQUEST",
+            "contentType": "TEXT"
         },
         "body": {
-        "name": "jsonblock",
-        "description": "test",
-        "tenant_id": db_sql_tenant.result_TENANT_ID,
-        "project_id": db_sql_tenant.result_PROJECT_ID,
-        "blk_dev_domain_id": db_sql_tenant.result_BlkDevDomain,
-        "size": 1073741824,
-        "is_shared": true
+            "name": "jsonblock",
+            "description": "test",
+            "tenant_id": db_sql_tenant.result_TENANT_ID,
+            "project_id": PROJECT_ID,
+            "blk_dev_domain_id": db_sql_tenant.result_BlkDevDomain,
+            "size": 1073741824,
+            "is_shared": True
         }
     }
 
@@ -440,7 +439,7 @@ def tenant(project_name, network_name, subnet_name):
         "body": {
                     "name":"fsjson",
                     "description":"JSON",
-                    "project_id":db_sql_tenant.result_PROJECT_ID,
+                    "project_id":PROJECT_ID,
                     "tenant_id":db_sql_tenant.result_TENANT_ID,
                     "filesystem_domain_id": db_sql_tenant.result_FSDomain_ID,
                     "quota": 10737418240
