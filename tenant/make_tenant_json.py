@@ -5,35 +5,26 @@ import sapgo_result
 import pyodbc
 
 def create_json_file(file_name, data, total_num_files):
-    # 해당 디렉토리를 만들어서 여기다 저장할 거임
-    base_direc = f'/home/yjs/automation/Create/yhi/tenant/{version}/'
+    # 해당 디렉토리에 json 저장
+    base_direc = f'/home/sapgo/bvt/tenant/{version}/'
 
     # 디렉토리가 없으면 생성
     if not os.path.exists(base_direc):
         os.makedirs(base_direc, exist_ok=True)
-    # else:
-    #     print(f"{base_direc} directory is already exists!")
 
-    # base_direc+=file_name
-    # file_path=base_direc
-    # 경로 조합하기
     file_path = os.path.join(base_direc, file_name)
 
     # 각 키(서비스)에 대해 파일 생성 및 저장
     with open(file_path, 'w') as json_file:
         json.dump(data, json_file, indent=4)
 
-    # print("file_path: ",file_path)
-    # with open(f'{base_direc}admin_hom_create_output.txt', 'a') as file:
-    #     print("files have been saved successfully.", file=file)
     total_num_files+=1
 
     return file_path, total_num_files, base_direc
 
-
 # Python 딕셔너리를 이용하여 json 파일 생성
 def tenant(project_name, network_name, subnet_name):
-    base_direc = f'/home/yjs/automation/Create/yhi/tenant/{version}/'
+    base_direc = f'/home/sapgo/bvt/tenant/{version}/'
     if not os.path.exists(base_direc):
         os.makedirs(base_direc, exist_ok=True)
 
@@ -70,25 +61,12 @@ def tenant(project_name, network_name, subnet_name):
     success_num_files, fail_num_files = sapgo_result.tenant_sapgo_result(base_direc,file_path, success_num_files, fail_num_files)
     db_sql_tenant.result_tenant_sql()
 
-    # PROJECT_ID
-    # 데이터베이스 설정
-    user = 'superiaas'
-    passwd = 'superiaas'
-    dsn = 'tibero7'
+    # 상위 PROJECT_ID 추출
 
-    # 데이터베이스 연결
-    conn = pyodbc.connect(f'DSN={dsn};UID={user};PWD={passwd}')
-    conn.setdecoding(pyodbc.SQL_CHAR, encoding='utf-8')
-    conn.setdecoding(pyodbc.SQL_WCHAR, encoding='utf-8')
-    conn.setdecoding(pyodbc.SQL_WMETADATA, encoding='utf-32le')
-    conn.setencoding(encoding='utf-8')
-
-    # 커서 생성
-    curs = conn.cursor()
+    db_sql_tenant.conn_db()
     sql_PROJECT_ID = f"SELECT PROJECT_ID FROM PROJECT WHERE NAME='{project_name}'"
     result_sql_PROJECT_ID = curs.execute(sql_PROJECT_ID).fetchall()
     PROJECT_ID = int(result_sql_PROJECT_ID[0][0])
-
     conn.close()
 
 
@@ -111,21 +89,8 @@ def tenant(project_name, network_name, subnet_name):
     success_num_files, fail_num_files=sapgo_result.tenant_sapgo_result(base_direc, file_path, success_num_files, fail_num_files)
     db_sql_tenant.result_tenant_sql()
 
-    # NETWORK_ID
-    # 데이터베이스 설정
-    user = 'superiaas'
-    passwd = 'superiaas'
-    dsn = 'tibero7'
-
-    # 데이터베이스 연결
-    conn = pyodbc.connect(f'DSN={dsn};UID={user};PWD={passwd}')
-    conn.setdecoding(pyodbc.SQL_CHAR, encoding='utf-8')
-    conn.setdecoding(pyodbc.SQL_WCHAR, encoding='utf-8')
-    conn.setdecoding(pyodbc.SQL_WMETADATA, encoding='utf-32le')
-    conn.setencoding(encoding='utf-8')
-
-    # 커서 생성
-    curs = conn.cursor()
+    # NETWORK_ID 추출
+    db_sql_tenant.conn_db()
     sql_NETWORK_ID = f"SELECT NETWORK_ID FROM NETWORK WHERE NAME='{network_name}'"
     result_sql_NETWORK_ID = curs.execute(sql_NETWORK_ID).fetchall()
     NETWORK_ID = int(result_sql_NETWORK_ID[0][0])
@@ -153,25 +118,11 @@ def tenant(project_name, network_name, subnet_name):
     success_num_files, fail_num_files = sapgo_result.tenant_sapgo_result(base_direc, file_path, success_num_files, fail_num_files)
     db_sql_tenant.result_tenant_sql()
 
-    # SUBNET_ID
-    # 데이터베이스 설정
-    user = 'superiaas'
-    passwd = 'superiaas'
-    dsn = 'tibero7'
-
-    # 데이터베이스 연결
-    conn = pyodbc.connect(f'DSN={dsn};UID={user};PWD={passwd}')
-    conn.setdecoding(pyodbc.SQL_CHAR, encoding='utf-8')
-    conn.setdecoding(pyodbc.SQL_WCHAR, encoding='utf-8')
-    conn.setdecoding(pyodbc.SQL_WMETADATA, encoding='utf-32le')
-    conn.setencoding(encoding='utf-8')
-
-    # 커서 생성
-    curs = conn.cursor()
+    # SUBNET_ID 추출
+    db_sql_tenant.conn_db()
     sql_SUBNET_ID = f"SELECT SUBNET_ID FROM SUBNET WHERE NAME='{subnet_name}'"
     result_sql_SUBNET_ID = curs.execute(sql_SUBNET_ID).fetchall()
     SUBNET_ID = int(result_sql_SUBNET_ID[0][0])
-
     conn.close()
 
     # CreateVrouterService = {
@@ -224,21 +175,9 @@ def tenant(project_name, network_name, subnet_name):
     success_num_files, fail_num_files = sapgo_result.tenant_sapgo_result(base_direc, file_path, success_num_files, fail_num_files)
     db_sql_tenant.result_tenant_sql()
 
-    # PUB_ADDR
-    # 데이터베이스 설정
-    user = 'superiaas'
-    passwd = 'superiaas'
-    dsn = 'tibero7'
-
-    # 데이터베이스 연결
-    conn = pyodbc.connect(f'DSN={dsn};UID={user};PWD={passwd}')
-    conn.setdecoding(pyodbc.SQL_CHAR, encoding='utf-8')
-    conn.setdecoding(pyodbc.SQL_WCHAR, encoding='utf-8')
-    conn.setdecoding(pyodbc.SQL_WMETADATA, encoding='utf-32le')
-    conn.setencoding(encoding='utf-8')
-
-    # 커서 생성
-    curs = conn.cursor()
+    # PUB_ADDR 추출
+    db_sql_tenant.conn_db()
+    # 가장 최근에 생성된 PUBLIC_IP 쿼리
     sql_PUB_ADDR = "SELECT PUB_ADDR FROM PUBLIC_IP WHERE CREATED_TIME = (SELECT MAX(CREATED_TIME) FROM PUBLIC_IP)"
     result_sql_PUB_ADDR = curs.execute(sql_PUB_ADDR).fetchall()
     PUB_ADDR = str(result_sql_PUB_ADDR[0][0])
@@ -264,25 +203,11 @@ def tenant(project_name, network_name, subnet_name):
     success_num_files, fail_num_files = sapgo_result.tenant_sapgo_result(base_direc, file_path, success_num_files, fail_num_files)
     db_sql_tenant.result_tenant_sql()
 
-    # SECURITY_GROUP_ID
-    # 데이터베이스 설정
-    user = 'superiaas'
-    passwd = 'superiaas'
-    dsn = 'tibero7'
-
-    # 데이터베이스 연결
-    conn = pyodbc.connect(f'DSN={dsn};UID={user};PWD={passwd}')
-    conn.setdecoding(pyodbc.SQL_CHAR, encoding='utf-8')
-    conn.setdecoding(pyodbc.SQL_WCHAR, encoding='utf-8')
-    conn.setdecoding(pyodbc.SQL_WMETADATA, encoding='utf-32le')
-    conn.setencoding(encoding='utf-8')
-
-    # 커서 생성
-    curs = conn.cursor()
+    # SECURITY_GROUP_ID 추출
+    db_sql_tenant.conn_db
     sql_SECURITY_GROUP_ID = f"SELECT SECURITY_GROUP_ID FROM SECURITY_GROUP WHERE NETWORK_ID={NETWORK_ID}"
     result_sql_SECURITY_GROUP_ID = curs.execute(sql_SECURITY_GROUP_ID).fetchall()
     SECURITY_GROUP_ID = int(result_sql_SECURITY_GROUP_ID[0][0])
-
     conn.close()
 
     # ApplyEgressFirewallService = {
@@ -377,6 +302,7 @@ def tenant(project_name, network_name, subnet_name):
     success_num_files, fail_num_files = sapgo_result.tenant_sapgo_result(base_direc, file_path, success_num_files, fail_num_files)
     db_sql_tenant.result_tenant_sql()
 
+    # ip 인스턴스 타겟 그룹 생성
     CreateTargetGroupService  = {
         "header": {
             "targetServiceName": "network/com.tmax.tmaxcloud.network.master.targetgroup.CreateTargetGroupService",
@@ -417,28 +343,14 @@ def tenant(project_name, network_name, subnet_name):
     success_num_files, fail_num_files = sapgo_result.tenant_sapgo_result(base_direc, file_path, success_num_files, fail_num_files)
     db_sql_tenant.result_tenant_sql()
 
-    # TARGET_GROUP_ID (bvt)
-    # 데이터베이스 설정
-    user = 'superiaas'
-    passwd = 'superiaas'
-    dsn = 'tibero7'
-
-    # 데이터베이스 연결
-    conn = pyodbc.connect(f'DSN={dsn};UID={user};PWD={passwd}')
-    conn.setdecoding(pyodbc.SQL_CHAR, encoding='utf-8')
-    conn.setdecoding(pyodbc.SQL_WCHAR, encoding='utf-8')
-    conn.setdecoding(pyodbc.SQL_WMETADATA, encoding='utf-32le')
-    conn.setencoding(encoding='utf-8')
-
-    # 커서 생성
-    curs = conn.cursor()
+    # TARGET_GROUP_ID 추출
+    db_sql_tenant.conn_db()
     sql_TARGET_GROUP_ID = f"SELECT TARGET_GROUP_ID FROM TARGET_GROUP WHERE NETWORK_ID={NETWORK_ID}"
     result_sql_TARGET_GROUP_ID = curs.execute(sql_TARGET_GROUP_ID).fetchall()
     TARGET_GROUP_ID = int(result_sql_TARGET_GROUP_ID[0][0])
-
     conn.close()
 
-
+    # 공인 IP 생성 2
     AllocatePublicIpService = {
                 "header": {
                     "targetServiceName": "network/com.tmax.tmaxcloud.network.master.subnet.publicip.AllocatePublicIpService",
@@ -455,27 +367,14 @@ def tenant(project_name, network_name, subnet_name):
     success_num_files, fail_num_files = sapgo_result.tenant_sapgo_result(base_direc, file_path, success_num_files, fail_num_files)
     db_sql_tenant.result_tenant_sql()
 
-    # pub_addr
-    # 데이터베이스 설정
-    user = 'superiaas'
-    passwd = 'superiaas'
-    dsn = 'tibero7'
-
-    # 데이터베이스 연결
-    conn = pyodbc.connect(f'DSN={dsn};UID={user};PWD={passwd}')
-    conn.setdecoding(pyodbc.SQL_CHAR, encoding='utf-8')
-    conn.setdecoding(pyodbc.SQL_WCHAR, encoding='utf-8')
-    conn.setdecoding(pyodbc.SQL_WMETADATA, encoding='utf-32le')
-    conn.setencoding(encoding='utf-8')
-
-    # 커서 생성
-    curs = conn.cursor()
+    # 상위 공인 IP ID 추출
+    db_sql_tenant.conn_db()
     sql_PUB_ADDR = "SELECT PUB_ADDR FROM PUBLIC_IP WHERE CREATED_TIME = (SELECT MAX(CREATED_TIME) FROM PUBLIC_IP)"
     result_sql_PUB_ADDR = curs.execute(sql_PUB_ADDR).fetchall()
     PUB_ADDR = str(result_sql_PUB_ADDR[0][0])
-
     conn.close()
 
+    # LB 생성 (bvt)
     CreateLbService = {
         "header": {
             "targetServiceName": "network/com.tmax.tmaxcloud.network.master.loadbalancer.overlay.CreateLbService",
@@ -506,51 +405,135 @@ def tenant(project_name, network_name, subnet_name):
     success_num_files, fail_num_files = sapgo_result.tenant_sapgo_result(base_direc, file_path, success_num_files, fail_num_files)
     db_sql_tenant.result_tenant_sql()
 
-    # 가상머신 생성
-    CreateGuestMachineService = {
+
+    # 빈블록 생성 (bvt)
+    BlkDevCreateEmpty = {
+        "header": {
+        "targetServiceName": "storage/com.tmax.tmaxcloud.storage.master.BlkDevCreateEmpty",
+        "requestId": 1,
+        "messageType": "REQUEST",
+        "contentType": "TEXT"
+        },
+        "body": {
+        "name": "jsonblock",
+        "description": "test",
+        "tenant_id": db_sql_tenant.result_TENANT_ID,
+        "project_id": db_sql_tenant.result_PROJECT_ID,
+        "blk_dev_domain_id": db_sql_tenant.result_BlkDevDomain,
+        "size": 1073741824,
+        "is_shared": true
+        }
+    }
+
+    file_path, total_num_files,base_direc= create_json_file("BlkDevCreateEmpty.json", BlkDevCreateEmpty, total_num_files)
+    success_num_files, fail_num_files = sapgo_result.tenant_sapgo_result(base_direc,file_path, success_num_files, fail_num_files)
+    db_sql_tenant.result_tenant_sql()
+
+
+    # 파일시스템 생성 (bvt)
+    FsCreate = {
+        "header": {
+            "targetServiceName": "storage/com.tmax.tmaxcloud.storage.master.FsCreate",
+            "requestId": 1,
+            "messageType": "REQUEST",
+            "contentType": "TEXT"
+        },
+        "body": {
+                    "name":"fsjson",
+                    "description":"JSON",
+                    "project_id":db_sql_tenant.result_PROJECT_ID,
+                    "tenant_id":db_sql_tenant.result_TENANT_ID,
+                    "filesystem_domain_id": db_sql_tenant.result_FSDomain_ID,
+                    "quota": 10737418240
+        }
+    }
+
+    
+    file_path, total_num_files,base_direc= create_json_file("FsCreate.json", FsCreate, total_num_files)
+    success_num_files, fail_num_files = sapgo_result.tenant_sapgo_result(base_direc,file_path, success_num_files, fail_num_files)
+    db_sql_tenant.result_tenant_sql()
+
+    # 테넌트 이미지 임포트 (bvt)
+    ImgImport_tenant = {
+        "header": {
+            "targetServiceName": "storage/com.tmax.tmaxcloud.storage.service.image.Import",
+            "requestId": 1,
+            "messageType": "REQUEST",
+            "contentType": "TEXT"
+        },
+        "body": {
+            "visibility": 2,
+            "tenant_id": db_sql_tenant.result_TENANT_ID,
+            "project_id": "0",
+            "image_repository_file_image_id": db_sql_tenant.result_IMAGE_ID,
+            "dest_block_device_domain_id": db_sql_tenant.result_BlkDevDomain
+        }
+    }
+
+    file_path, total_num_files,base_direc= create_json_file("ImgImport_tenant.json", ImgImport_tenant, total_num_files)
+    success_num_files, fail_num_files = sapgo_result.tenant_sapgo_result(base_direc,file_path, success_num_files, fail_num_files)
+    db_sql_tenant.result_tenant_sql()
+
+    # 프로젝트 이미지 임포트 (bvt) -> 가상 머신에 사용할 ID
+    ImgImport_project = {
     "header": {
-        "targetServiceName": "inframaster-compute/com.tmax.tmaxcloud.inframaster.compute.master.service.compute.vm.CreateGuestMachineService",
-        "messageType": "REQUEST"
+        "targetServiceName": "storage/com.tmax.tmaxcloud.storage.service.image.Import",
+        "requestId": 1,
+        "messageType": "REQUEST",
+        "contentType": "TEXT"
     },
     "body": {
-        "name" : "yjsautovm",
-        "tenant_id" : db_sql_tenant.result_TENANT_ID,
-        "project_id" : PROJECT_ID,
-        "network_id" : NETWORK_ID,
-        "vnic_info" : [{"subnet_id" : SUBNET_ID , "security_group_ids" : [SECURITY_GROUP_ID]}],
-        "mem_total" : "1024",
-        "vcpu_count" : "1",
-        "disks" : [],
-        "image_id" : "22",
-        "blk_dev_domain_id": db_sql_tenant.result_BlkDevDomain,
+        "visibility": 3,
+        "tenant_id": db_sql_tenant.result_TENANT_ID,
+        "project_id": PROJECT_ID,
+        "image_repository_file_image_id": db_sql_tenant.result_IMAGE_ID,
+        "dest_block_device_domain_id": db_sql_tenant.result_BlkDevDomain
     }
     }
+
+    file_path, total_num_files,base_direc= create_json_file("ImgImport_project.json", ImgImport_project, total_num_files)
+    success_num_files, fail_num_files = sapgo_result.tenant_sapgo_result(base_direc,file_path, success_num_files, fail_num_files)
+    db_sql_tenant.result_tenant_sql()
+
+    # STORAGE IMAGE_ID 추출
+    db_sql_tenant.conn_db()
+    sql_IMAGE_ID = f"SELECT ID FROM STORAGE_IMAGE PROJECT_ID='{PROJECT_ID}'"
+    result_sql_IMAGE_ID = curs.execute(sql_IMAGE_ID).fetchall()
+    IMAGE_ID = int(result_sql_IMAGE_ID[0][0])
+    conn.close()
+
+    # 가상머신 생성 (bvt)
+    CreateGuestMachineService = {
+        "header": {
+            "targetServiceName": "inframaster-compute/com.tmax.tmaxcloud.inframaster.compute.master.service.compute.vm.CreateGuestMachineService",
+            "messageType": "REQUEST"
+        },
+        "body": {
+            "name" : "yjsautovm",
+            "tenant_id" : db_sql_tenant.result_TENANT_ID,
+            "project_id" : PROJECT_ID,
+            "network_id" : NETWORK_ID,
+            "vnic_info" : [{"subnet_id" : SUBNET_ID , "security_group_ids" : [SECURITY_GROUP_ID]}],
+            "mem_total" : "1024",
+            "vcpu_count" : "1",
+            "disks" : [],
+            "image_id" : IMAGE_ID,
+            "blk_dev_domain_id": db_sql_tenant.result_BlkDevDomain,
+        }
+    }
+
     file_path, total_num_files,base_direc= create_json_file("CreateGuestMachineService.json", CreateGuestMachineService, total_num_files)
     success_num_files, fail_num_files = sapgo_result.tenant_sapgo_result(base_direc,file_path, success_num_files, fail_num_files)
     db_sql_tenant.result_tenant_sql()
 
-    # guest_machine_id
-    # 데이터베이스 설정
-    user = 'superiaas'
-    passwd = 'superiaas'
-    dsn = 'tibero7'
+    # # GUEST_MACHINE_ID 추출
+    # db_sql_tenant.conn_db()
+    # sql_GUEST_MACHINE_ID = "select GUEST_MACHINE_ID from guest_machine where name = 'yjsautovm'"
+    # result_sql_GUEST_MACHINE_ID = curs.execute(sql_GUEST_MACHINE_ID).fetchall()
+    # GUEST_MACHINE_ID = str(result_sql_GUEST_MACHINE_ID[0][0])
+    # conn.close()
 
-    # 데이터베이스 연결
-    conn = pyodbc.connect(f'DSN={dsn};UID={user};PWD={passwd}')
-    conn.setdecoding(pyodbc.SQL_CHAR, encoding='utf-8')
-    conn.setdecoding(pyodbc.SQL_WCHAR, encoding='utf-8')
-    conn.setdecoding(pyodbc.SQL_WMETADATA, encoding='utf-32le')
-    conn.setencoding(encoding='utf-8')
-
-    # 커서 생성
-    curs = conn.cursor()
-    sql_GUEST_MACHINE_ID = "select GUEST_MACHINE_ID from guest_machine where name = 'yjsautovm'"
-    result_sql_GUEST_MACHINE_ID = curs.execute(sql_GUEST_MACHINE_ID).fetchall()
-    GUEST_MACHINE_ID = str(result_sql_GUEST_MACHINE_ID[0][0])
-
-    conn.close()
-
-    #  가상머신 실행
+    # 가상머신 실행 (bvt)
     RunGuestMachineService = {
         "header": {
             "targetServiceName": "inframaster-compute/com.tmax.tmaxcloud.inframaster.compute.master.service.compute.vm.RunGuestMachineService",
@@ -582,6 +565,7 @@ if __name__ == "__main__":
     project_name = input("Enter the PROJECT creation name: ")
     network_name = input("Enter the NETWORK name: ")
     subnet_name = input("Enter the SUBNET name: ")
+
     tenant(project_name, network_name, subnet_name)
 
 
