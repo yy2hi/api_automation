@@ -62,8 +62,7 @@ def tenant(project_name, network_name, subnet_name):
     db_sql_tenant.result_tenant_sql()
 
     # 상위 PROJECT_ID 추출
-
-    db_sql_tenant.conn_db()
+    conn, curs = db_sql_tenant.conn_db()
     sql_PROJECT_ID = f"SELECT PROJECT_ID FROM PROJECT WHERE NAME='{project_name}'"
     result_sql_PROJECT_ID = curs.execute(sql_PROJECT_ID).fetchall()
     PROJECT_ID = int(result_sql_PROJECT_ID[0][0])
@@ -90,7 +89,7 @@ def tenant(project_name, network_name, subnet_name):
     db_sql_tenant.result_tenant_sql()
 
     # NETWORK_ID 추출
-    db_sql_tenant.conn_db()
+    conn, curs = db_sql_tenant.conn_db()
     sql_NETWORK_ID = f"SELECT NETWORK_ID FROM NETWORK WHERE NAME='{network_name}'"
     result_sql_NETWORK_ID = curs.execute(sql_NETWORK_ID).fetchall()
     NETWORK_ID = int(result_sql_NETWORK_ID[0][0])
@@ -119,7 +118,7 @@ def tenant(project_name, network_name, subnet_name):
     db_sql_tenant.result_tenant_sql()
 
     # SUBNET_ID 추출
-    db_sql_tenant.conn_db()
+    conn, curs = db_sql_tenant.conn_db()
     sql_SUBNET_ID = f"SELECT SUBNET_ID FROM SUBNET WHERE NAME='{subnet_name}'"
     result_sql_SUBNET_ID = curs.execute(sql_SUBNET_ID).fetchall()
     SUBNET_ID = int(result_sql_SUBNET_ID[0][0])
@@ -176,8 +175,8 @@ def tenant(project_name, network_name, subnet_name):
     db_sql_tenant.result_tenant_sql()
 
     # PUB_ADDR 추출
-    db_sql_tenant.conn_db()
-    # 가장 최근에 생성된 PUBLIC_IP 쿼리
+    conn, curs = db_sql_tenant.conn_db()
+    # 가장 최근에 생성된 PUBLIC_IP 추출 쿼리
     sql_PUB_ADDR = "SELECT PUB_ADDR FROM PUBLIC_IP WHERE CREATED_TIME = (SELECT MAX(CREATED_TIME) FROM PUBLIC_IP)"
     result_sql_PUB_ADDR = curs.execute(sql_PUB_ADDR).fetchall()
     PUB_ADDR = str(result_sql_PUB_ADDR[0][0])
@@ -344,7 +343,7 @@ def tenant(project_name, network_name, subnet_name):
     db_sql_tenant.result_tenant_sql()
 
     # TARGET_GROUP_ID 추출
-    db_sql_tenant.conn_db()
+    conn, curs = db_sql_tenant.conn_db()
     sql_TARGET_GROUP_ID = f"SELECT TARGET_GROUP_ID FROM TARGET_GROUP WHERE NETWORK_ID={NETWORK_ID}"
     result_sql_TARGET_GROUP_ID = curs.execute(sql_TARGET_GROUP_ID).fetchall()
     TARGET_GROUP_ID = int(result_sql_TARGET_GROUP_ID[0][0])
@@ -368,7 +367,7 @@ def tenant(project_name, network_name, subnet_name):
     db_sql_tenant.result_tenant_sql()
 
     # 상위 공인 IP ID 추출
-    db_sql_tenant.conn_db()
+    conn, curs = db_sql_tenant.conn_db()
     sql_PUB_ADDR = "SELECT PUB_ADDR FROM PUBLIC_IP WHERE CREATED_TIME = (SELECT MAX(CREATED_TIME) FROM PUBLIC_IP)"
     result_sql_PUB_ADDR = curs.execute(sql_PUB_ADDR).fetchall()
     PUB_ADDR = str(result_sql_PUB_ADDR[0][0])
@@ -496,7 +495,7 @@ def tenant(project_name, network_name, subnet_name):
     db_sql_tenant.result_tenant_sql()
 
     # STORAGE IMAGE_ID 추출
-    db_sql_tenant.conn_db()
+    conn, curs = db_sql_tenant.conn_db()
     sql_IMAGE_ID = f"SELECT ID FROM STORAGE_IMAGE PROJECT_ID='{PROJECT_ID}'"
     result_sql_IMAGE_ID = curs.execute(sql_IMAGE_ID).fetchall()
     IMAGE_ID = int(result_sql_IMAGE_ID[0][0])
@@ -527,7 +526,7 @@ def tenant(project_name, network_name, subnet_name):
     db_sql_tenant.result_tenant_sql()
 
     # # GUEST_MACHINE_ID 추출
-    # db_sql_tenant.conn_db()
+    # conn, curs = db_sql_tenant.conn_db()
     # sql_GUEST_MACHINE_ID = "select GUEST_MACHINE_ID from guest_machine where name = 'yjsautovm'"
     # result_sql_GUEST_MACHINE_ID = curs.execute(sql_GUEST_MACHINE_ID).fetchall()
     # GUEST_MACHINE_ID = str(result_sql_GUEST_MACHINE_ID[0][0])

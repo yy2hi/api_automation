@@ -16,9 +16,11 @@ def conn_db():
         # 커서 생성
         curs = conn.cursor()
 
+        return conn, curs
+
 def result_tenant_sql():
         try:
-                conn_db()
+                conn, curs = conn_db()
 
                 # USER_ID
                 sql_USER_ID = "SELECT ID FROM USER_INFO WHERE LOGIN_ID='yhi'"
