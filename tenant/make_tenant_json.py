@@ -538,7 +538,7 @@ def tenant(project_name, network_name, subnet_name):
             "messageType": "REQUEST"
         },
         "body": {
-            "guest_machine_id" : GUEST_MACHINE_ID,
+            "guest_machine_id" : db_sql_tenant.result_GUEST_MACHINE_ID,
             "project_id" : PROJECT_ID
         }
     }
