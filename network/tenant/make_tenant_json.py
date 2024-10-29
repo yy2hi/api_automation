@@ -7,7 +7,7 @@ import sapgo_result
 
 def create_json_file(file_name, data, total_num_files):
     # 해당 디렉토리에 json 저장
-    base_direc = f'/home/sapgo/bvt/tenant/{VERSION}/'
+    base_direc = f'//home/sapgo/network/automation/tenant/{VERSION}/'
 
     # 디렉토리가 없으면 생성
     if not os.path.exists(base_direc):
@@ -26,7 +26,7 @@ def create_json_file(file_name, data, total_num_files):
 # ▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼ JSON 입력 ▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼
 # Python 딕셔너리를 이용하여 json 파일 생성
 def tenant(PROJECT_NAME, NETWORK_NAME, SUBNET_NAME, VM_NAME):
-    base_direc = f'/home/sapgo/bvt/tenant/{VERSION}/'
+    base_direc = f'/home/sapgo/network/automation/tenant/{VERSION}/'
     if not os.path.exists(base_direc):
         os.makedirs(base_direc, exist_ok=True)
 

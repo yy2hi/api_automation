@@ -1,0 +1,27 @@
+2024-10-29 15:51:03,714 - admin_automation - ERROR - Failed: /home/sapgo/network/automation/test_automation/1.1.2/CreateHostOSGroup.json
+2024-10-29 15:51:03,714 - admin_automation - INFO - Total files: 1
+2024-10-29 15:51:03,714 - admin_automation - INFO - Successful files: 0
+2024-10-29 15:51:03,714 - admin_automation - INFO - Failed files: 1
+2024-10-29 15:52:05,913 - admin_automation - ERROR - Failed: /home/sapgo/network/automation/test_automation/1.1.2/CreateHostOSGroup.json
+2024-10-29 15:52:05,914 - admin_automation - INFO - Total files: 1
+2024-10-29 15:52:05,914 - admin_automation - INFO - Successful files: 0
+2024-10-29 15:52:05,914 - admin_automation - INFO - Failed files: 1
+2024-10-29 15:58:03,427 - admin_automation - ERROR - Failed: /home/sapgo/network/automation/test_automation/1.1.2/CreateHostOSGroup.json
+2024-10-29 15:58:03,428 - admin_automation - INFO - Total files: 1
+2024-10-29 15:58:03,428 - admin_automation - INFO - Successful files: 0
+2024-10-29 15:58:03,428 - admin_automation - INFO - Failed files: 1
+2024-10-29 16:02:53,059 - admin_automation - INFO - Total files: 1
+2024-10-29 16:02:53,060 - admin_automation - INFO - Successful files: 0
+2024-10-29 16:02:53,060 - admin_automation - INFO - Failed files: 1
+2024-10-29 16:05:55,452 - admin_automation - INFO - Success: /home/sapgo/network/automation/test_automation/1.1.2/CreateHostOSGroup.json
+2024-10-29 16:05:55,452 - admin_automation - INFO - Total files: 1
+2024-10-29 16:05:55,452 - admin_automation - INFO - Successful files: 1
+2024-10-29 16:05:55,452 - admin_automation - INFO - Failed files: 0
+2024-10-29 16:07:17,854 - admin_automation - INFO - Success: /home/sapgo/network/automation/test_automation/1.1.2/CreateHostOSGroup.json
+2024-10-29 16:07:17,854 - admin_automation - INFO - Total files: 1
+2024-10-29 16:07:17,854 - admin_automation - INFO - Successful files: 1
+2024-10-29 16:07:17,854 - admin_automation - INFO - Failed files: 0
+2024-10-29 16:38:41,063 - admin_automation - INFO - Success: /home/sapgo/network/automation/test_automation/1.1.2/admin/CreateHostOSGroup.json
+2024-10-29 16:38:41,063 - admin_automation - INFO - Total files: 1
+2024-10-29 16:38:41,063 - admin_automation - INFO - Successful files: 1
+2024-10-29 16:38:41,063 - admin_automation - INFO - Failed files: 0

@@ -1,0 +1,71 @@
+2024-10-29 16:42:19,602 - tenant_automation - INFO - Success: /home/sapgo/network/automation/test_automation/1.1.2/tenant/CreateProjectWithQuotaService.json
+2024-10-29 16:42:19,602 - tenant_automation - ERROR - Tenant automation error: 'DatabaseManager' object has no attribute 'conn_db'
+2024-10-29 16:42:19,602 - tenant_automation - INFO - Total files: 1
+2024-10-29 16:42:19,603 - tenant_automation - INFO - Successful files: 1
+2024-10-29 16:42:19,603 - tenant_automation - INFO - Failed files: 0
+2024-10-29 16:46:37,963 - tenant_automation - INFO - Success: /home/sapgo/network/automation/test_automation/1.1.2/tenant/CreateProjectWithQuotaService.json
+2024-10-29 16:46:37,963 - tenant_automation - ERROR - Tenant automation error: 'DatabaseManager' object has no attribute 'conn_db'
+2024-10-29 16:46:37,963 - tenant_automation - INFO - Total files: 1
+2024-10-29 16:46:37,963 - tenant_automation - INFO - Successful files: 1
+2024-10-29 16:46:37,963 - tenant_automation - INFO - Failed files: 0
+2024-10-29 16:49:10,783 - tenant_automation - ERROR - Failed: /home/sapgo/network/automation/test_automation/1.1.2/tenant/CreateProjectWithQuotaService.json
+2024-10-29 16:49:10,784 - tenant_automation - ERROR - Tenant automation error: 'DatabaseManager' object has no attribute 'conn_db'
+2024-10-29 16:49:10,784 - tenant_automation - INFO - Total files: 1
+2024-10-29 16:49:10,784 - tenant_automation - INFO - Successful files: 0
+2024-10-29 16:49:10,784 - tenant_automation - INFO - Failed files: 1
+2024-10-29 17:05:02,185 - tenant_automation - INFO - Success: /home/sapgo/network/automation/test_automation/1.1.2/tenant/CreateProjectWithQuotaService.json
+2024-10-29 17:05:02,185 - tenant_automation - ERROR - Tenant automation error: 'DatabaseManager' object has no attribute 'conn_db'
+2024-10-29 17:05:02,185 - tenant_automation - INFO - Total files: 1
+2024-10-29 17:05:02,185 - tenant_automation - INFO - Successful files: 1
+2024-10-29 17:05:02,185 - tenant_automation - INFO - Failed files: 0
+2024-10-29 17:06:12,908 - tenant_automation - INFO - Success: /home/sapgo/network/automation/test_automation/1.1.2/tenant/CreateProjectWithQuotaService.json
+2024-10-29 17:06:13,172 - tenant_automation - ERROR - Tenant automation error: 'function' object has no attribute 'result_TENANT_ID'
+2024-10-29 17:06:13,172 - tenant_automation - INFO - Total files: 1
+2024-10-29 17:06:13,172 - tenant_automation - INFO - Successful files: 1
+2024-10-29 17:06:13,172 - tenant_automation - INFO - Failed files: 0
+2024-10-29 17:11:11,012 - tenant_automation - ERROR - Failed: /home/sapgo/network/automation/test_automation/1.1.2/tenant/CreateProjectWithQuotaService.json
+2024-10-29 17:11:11,038 - tenant_automation - ERROR - Tenant automation error: 'function' object has no attribute 'result_TENANT_ID'
+2024-10-29 17:11:11,038 - tenant_automation - INFO - Total files: 1
+2024-10-29 17:11:11,038 - tenant_automation - INFO - Successful files: 0
+2024-10-29 17:11:11,038 - tenant_automation - INFO - Failed files: 1
+2024-10-29 17:12:32,845 - tenant_automation - ERROR - Failed: /home/sapgo/network/automation/test_automation/1.1.2/tenant/CreateProjectWithQuotaService.json
+2024-10-29 17:12:32,870 - tenant_automation - ERROR - Tenant automation error: 'function' object has no attribute 'result_TENANT_ID'
+2024-10-29 17:12:32,871 - tenant_automation - INFO - Total files: 1
+2024-10-29 17:12:32,871 - tenant_automation - INFO - Successful files: 0
+2024-10-29 17:12:32,871 - tenant_automation - INFO - Failed files: 1
+2024-10-29 17:18:10,348 - tenant_automation - ERROR - Failed: /home/sapgo/network/automation/test_automation/1.1.2/tenant/CreateProjectWithQuotaService.json
+2024-10-29 17:18:10,358 - tenant_automation - ERROR - Tenant automation error: 'function' object has no attribute 'result_TENANT_ID'
+2024-10-29 17:18:10,359 - tenant_automation - INFO - Total files: 1
+2024-10-29 17:18:10,359 - tenant_automation - INFO - Successful files: 0
+2024-10-29 17:18:10,359 - tenant_automation - INFO - Failed files: 1
+2024-10-29 17:27:04,914 - tenant_automation - ERROR - Failed: /home/sapgo/network/automation/test_automation/1.1.2/tenant/CreateProjectWithQuotaService.json
+2024-10-29 17:27:04,915 - tenant_automation - ERROR - Tenant automation error: conn_db() missing 1 required positional argument: 'self'
+2024-10-29 17:27:04,915 - tenant_automation - INFO - Total files: 1
+2024-10-29 17:27:04,915 - tenant_automation - INFO - Successful files: 0
+2024-10-29 17:27:04,915 - tenant_automation - INFO - Failed files: 1
+2024-10-29 17:29:04,082 - tenant_automation - ERROR - Failed: /home/sapgo/network/automation/test_automation/1.1.2/tenant/CreateProjectWithQuotaService.json
+2024-10-29 17:29:04,094 - tenant_automation - ERROR - Tenant automation error: 'function' object has no attribute 'result_TENANT_ID'
+2024-10-29 17:29:04,094 - tenant_automation - INFO - Total files: 1
+2024-10-29 17:29:04,094 - tenant_automation - INFO - Successful files: 0
+2024-10-29 17:29:04,094 - tenant_automation - INFO - Failed files: 1
+2024-10-29 17:32:50,082 - tenant_automation - ERROR - Failed: /home/sapgo/network/automation/test_automation/1.1.2/tenant/CreateProjectWithQuotaService.json
+2024-10-29 17:32:50,092 - tenant_automation - ERROR - Tenant automation error: 'function' object has no attribute 'result_TENANT_ID'
+2024-10-29 17:32:50,092 - tenant_automation - INFO - Total files: 1
+2024-10-29 17:32:50,092 - tenant_automation - INFO - Successful files: 0
+2024-10-29 17:32:50,092 - tenant_automation - INFO - Failed files: 1
+2024-10-29 17:35:30,258 - tenant_automation - ERROR - Tenant automation error: 'function' object has no attribute 'result_TENANT_ID'
+2024-10-29 17:35:30,258 - tenant_automation - INFO - Total files: 0
+2024-10-29 17:35:30,258 - tenant_automation - INFO - Successful files: 0
+2024-10-29 17:35:30,258 - tenant_automation - INFO - Failed files: 0
+2024-10-29 17:36:46,165 - tenant_automation - INFO - Success: /home/sapgo/network/automation/test_automation/1.1.2/tenant/CreateProjectWithQuotaService.json
+2024-10-29 17:36:48,995 - tenant_automation - INFO - Success: /home/sapgo/network/automation/test_automation/1.1.2/tenant/CreateNetworkService.json
+2024-10-29 17:36:49,008 - tenant_automation - ERROR - Tenant automation error: module 'common' has no attribute 'db_sqll'
+2024-10-29 17:36:49,009 - tenant_automation - INFO - Total files: 2
+2024-10-29 17:36:49,009 - tenant_automation - INFO - Successful files: 2
+2024-10-29 17:36:49,009 - tenant_automation - INFO - Failed files: 0
+2024-10-29 17:37:28,212 - tenant_automation - INFO - Success: /home/sapgo/network/automation/test_automation/1.1.2/tenant/CreateProjectWithQuotaService.json
+2024-10-29 17:37:31,116 - tenant_automation - INFO - Success: /home/sapgo/network/automation/test_automation/1.1.2/tenant/CreateNetworkService.json
+2024-10-29 17:37:32,681 - tenant_automation - INFO - Success: /home/sapgo/network/automation/test_automation/1.1.2/tenant/CreateSubnetService.json
+2024-10-29 17:37:32,693 - tenant_automation - INFO - Total files: 3
+2024-10-29 17:37:32,693 - tenant_automation - INFO - Successful files: 3
+2024-10-29 17:37:32,693 - tenant_automation - INFO - Failed files: 0

@@ -5,7 +5,7 @@ import sapgo_result
 
 def create_json_file(file_name, data, total_num_files):
     # 해당 디렉토리에 json 저장
-    base_direc = f'/home/sapgo/bvt/admin/{version}/'
+    base_direc = f'/home/sapgo/network/automation/admin/{version}/'
 
     # 디렉토리가 없으면 생성
     if not os.path.exists(base_direc):
@@ -25,7 +25,7 @@ def create_json_file(file_name, data, total_num_files):
 
 # Python 딕셔너리를 이용하여 json 파일 생성
 def admin():
-    base_direc = f'/home/sapgo/bvt/admin/{version}/'
+    base_direc = f'/home/sapgo/network/automation/admin/{version}/'
     if not os.path.exists(base_direc):
         os.makedirs(base_direc, exist_ok=True)
 
@@ -74,69 +74,150 @@ def admin():
     success_num_files, fail_num_files = sapgo_result.admin_sapgo_result(base_direc,file_path, success_num_files, fail_num_files)
     db_sql_admin.rseult_sql_admin()
 
-    # # master8
-    # CreateHostInterface = {
-    #     "header": {
-    #         "targetServiceName": "network/com.tmax.tmaxcloud.network.master.CreateHostInterface",
-    #         "requestId": 1,
-    #         "messageType": "REQUEST",
-    #         "contentType": "TEXT"
-    #     },
-    #     "body":{
-    #       "HOSTNAME": "master8"
-    #     }
-    # }
-    # file_path, total_num_files, base_direc= create_json_file("CreateHostInterface.json", CreateHostInterface, total_num_files)
-    # success_num_files, fail_num_files = sapgo_result.admin_sapgo_result(base_direc,file_path, success_num_files, fail_num_files)
-    # db_sql_admin.result_sql_admin()
+    # master8
+    CreateHostInterface = {
+        "header": {
+            "targetServiceName": "network/com.tmax.tmaxcloud.network.master.CreateHostInterface",
+            "requestId": 1,
+            "messageType": "REQUEST",
+            "contentType": "TEXT"
+        },
+        "body":{
+          "HOSTNAME": "master8"
+        }
+    }
+    file_path, total_num_files, base_direc= create_json_file("CreateHostInterface.json", CreateHostInterface, total_num_files)
+    success_num_files, fail_num_files = sapgo_result.admin_sapgo_result(base_direc,file_path, success_num_files, fail_num_files)
+    db_sql_admin.result_sql_admin()
 
-    # # master9
-    # CreateHostInterface = {
-    #     "header": {
-    #         "targetServiceName": "network/com.tmax.tmaxcloud.network.master.CreateHostInterface",
-    #         "requestId": 1,
-    #         "messageType": "REQUEST",
-    #         "contentType": "TEXT"
-    #     },
-    #     "body":{
-    #       "HOSTNAME": "master9"
-    #     }
-    # }
-    # file_path, total_num_files, base_direc= create_json_file("CreateHostInterface.json", CreateHostInterface, total_num_files)
-    # success_num_files, fail_num_files = sapgo_result.admin_sapgo_result(base_direc,file_path, success_num_files, fail_num_files)
-    # db_sql_admin.result_sql_admin()
+    # master9
+    CreateHostInterface = {
+        "header": {
+            "targetServiceName": "network/com.tmax.tmaxcloud.network.master.CreateHostInterface",
+            "requestId": 1,
+            "messageType": "REQUEST",
+            "contentType": "TEXT"
+        },
+        "body":{
+          "HOSTNAME": "master9"
+        }
+    }
+    file_path, total_num_files, base_direc= create_json_file("CreateHostInterface.json", CreateHostInterface, total_num_files)
+    success_num_files, fail_num_files = sapgo_result.admin_sapgo_result(base_direc,file_path, success_num_files, fail_num_files)
+    db_sql_admin.result_sql_admin()
 
-    # # compute17
-    # CreateHostInterface = {
-    #     "header": {
-    #         "targetServiceName": "network/com.tmax.tmaxcloud.network.master.CreateHostInterface",
-    #         "requestId": 1,
-    #         "messageType": "REQUEST",
-    #         "contentType": "TEXT"
-    #     },
-    #     "body":{
-    #       "HOSTNAME": "compute17"
-    #     }
-    # }
-    # file_path, total_num_files, base_direc= create_json_file("CreateHostInterface.json", CreateHostInterface, total_num_files)
-    # success_num_files, fail_num_files = sapgo_result.admin_sapgo_result(base_direc,file_path, success_num_files, fail_num_files)
-    # db_sql_admin.result_sql_admin()
+    # storage14
+    CreateHostInterface = {
+        "header": {
+            "targetServiceName": "network/com.tmax.tmaxcloud.network.master.CreateHostInterface",
+            "requestId": 1,
+            "messageType": "REQUEST",
+            "contentType": "TEXT"
+        },
+        "body":{
+          "HOSTNAME": "storage14"
+        }
+    }
+    file_path, total_num_files, base_direc= create_json_file("CreateHostInterface.json", CreateHostInterface, total_num_files)
+    success_num_files, fail_num_files = sapgo_result.admin_sapgo_result(base_direc,file_path, success_num_files, fail_num_files)
+    db_sql_admin.result_sql_admin()
 
-    # # compute18
-    # CreateHostInterface = {
-    #     "header": {
-    #         "targetServiceName": "network/com.tmax.tmaxcloud.network.master.CreateHostInterface",
-    #         "requestId": 1,
-    #         "messageType": "REQUEST",
-    #         "contentType": "TEXT"
-    #     },
-    #     "body":{
-    #       "HOSTNAME": "compute18"
-    #     }
-    # }
-    # file_path, total_num_files, base_direc= create_json_file("CreateHostInterface.json", CreateHostInterface, total_num_files)
-    # success_num_files, fail_num_files = sapgo_result.admin_sapgo_result(base_direc,file_path, success_num_files, fail_num_files)
-    # db_sql_admin.result_sql_admin()
+    # storage15
+    CreateHostInterface = {
+        "header": {
+            "targetServiceName": "network/com.tmax.tmaxcloud.network.master.CreateHostInterface",
+            "requestId": 1,
+            "messageType": "REQUEST",
+            "contentType": "TEXT"
+        },
+        "body":{
+          "HOSTNAME": "storage15"
+        }
+    }
+    file_path, total_num_files, base_direc= create_json_file("CreateHostInterface.json", CreateHostInterface, total_num_files)
+    success_num_files, fail_num_files = sapgo_result.admin_sapgo_result(base_direc,file_path, success_num_files, fail_num_files)
+    db_sql_admin.result_sql_admin()
+
+    # storage16
+    CreateHostInterface = {
+        "header": {
+            "targetServiceName": "network/com.tmax.tmaxcloud.network.master.CreateHostInterface",
+            "requestId": 1,
+            "messageType": "REQUEST",
+            "contentType": "TEXT"
+        },
+        "body":{
+          "HOSTNAME": "storage16"
+        }
+    }
+    file_path, total_num_files, base_direc= create_json_file("CreateHostInterface.json", CreateHostInterface, total_num_files)
+    success_num_files, fail_num_files = sapgo_result.admin_sapgo_result(base_direc,file_path, success_num_files, fail_num_files)
+    db_sql_admin.result_sql_admin()
+
+    # compute17
+    CreateHostInterface = {
+        "header": {
+            "targetServiceName": "network/com.tmax.tmaxcloud.network.master.CreateHostInterface",
+            "requestId": 1,
+            "messageType": "REQUEST",
+            "contentType": "TEXT"
+        },
+        "body":{
+          "HOSTNAME": "compute17"
+        }
+    }
+    file_path, total_num_files, base_direc= create_json_file("CreateHostInterface.json", CreateHostInterface, total_num_files)
+    success_num_files, fail_num_files = sapgo_result.admin_sapgo_result(base_direc,file_path, success_num_files, fail_num_files)
+    db_sql_admin.result_sql_admin()
+
+    # compute18
+    CreateHostInterface = {
+        "header": {
+            "targetServiceName": "network/com.tmax.tmaxcloud.network.master.CreateHostInterface",
+            "requestId": 1,
+            "messageType": "REQUEST",
+            "contentType": "TEXT"
+        },
+        "body":{
+          "HOSTNAME": "compute18"
+        }
+    }
+    file_path, total_num_files, base_direc= create_json_file("CreateHostInterface.json", CreateHostInterface, total_num_files)
+    success_num_files, fail_num_files = sapgo_result.admin_sapgo_result(base_direc,file_path, success_num_files, fail_num_files)
+    db_sql_admin.result_sql_admin()
+
+    # server19
+    CreateHostInterface = {
+        "header": {
+            "targetServiceName": "network/com.tmax.tmaxcloud.network.master.CreateHostInterface",
+            "requestId": 1,
+            "messageType": "REQUEST",
+            "contentType": "TEXT"
+        },
+        "body":{
+          "HOSTNAME": "server19"
+        }
+    }
+    file_path, total_num_files, base_direc= create_json_file("CreateHostInterface.json", CreateHostInterface, total_num_files)
+    success_num_files, fail_num_files = sapgo_result.admin_sapgo_result(base_direc,file_path, success_num_files, fail_num_files)
+    db_sql_admin.result_sql_admin()
+
+    # server101
+    CreateHostInterface = {
+        "header": {
+            "targetServiceName": "network/com.tmax.tmaxcloud.network.master.CreateHostInterface",
+            "requestId": 1,
+            "messageType": "REQUEST",
+            "contentType": "TEXT"
+        },
+        "body":{
+          "HOSTNAME": "server101"
+        }
+    }
+    file_path, total_num_files, base_direc= create_json_file("CreateHostInterface.json", CreateHostInterface, total_num_files)
+    success_num_files, fail_num_files = sapgo_result.admin_sapgo_result(base_direc,file_path, success_num_files, fail_num_files)
+    db_sql_admin.result_sql_admin()
+
 
 
     # compute17 용도 지정 (bvt)
