@@ -1,0 +1,11 @@
+{
+    "header": {
+        "targetServiceName": "host-os-service/com.tmax.tmaxcloud.hom.compute.os.CreateHostOSGroup",
+        "messageType": "REQUEST"
+    },
+    "body": {
+        "GROUP_NAME": "test",
+        "TYPE": "test",
+        "DESCRIPTION": "test"
+    }
+}

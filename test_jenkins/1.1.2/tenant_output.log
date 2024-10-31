@@ -1,0 +1,6 @@
+2024-10-31 18:17:49,812 - tenant_automation - INFO - Success: /home/yhi/test_jenkins/1.1.2/tenant/CreateProjectWithQuotaService.json
+2024-10-31 18:17:52,783 - tenant_automation - INFO - Success: /home/yhi/test_jenkins/1.1.2/tenant/CreateNetworkService.json
+2024-10-31 18:17:54,345 - tenant_automation - INFO - Success: /home/yhi/test_jenkins/1.1.2/tenant/CreateSubnetService.json
+2024-10-31 18:17:54,357 - tenant_automation - INFO - Total files: 3
+2024-10-31 18:17:54,357 - tenant_automation - INFO - Successful files: 3
+2024-10-31 18:17:54,357 - tenant_automation - INFO - Failed files: 0
